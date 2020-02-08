@@ -1,0 +1,40 @@
+.title {
+  font-size: 40px;
+}
+
+.form {
+  /* width: 50%; */
+}
+
+.form__label {
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.form__input {
+  height: 40px;
+  border: 2px solid #bfbfbf;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form__input-label {
+  position: absolute;
+  top: 0;
+  color: #bfbfbf;
+  font-size: 18px;
+}
+
+.form__add-email-btn {
+  background-color: transparent;
+  border: none;
+  color: #FF0000;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.input-required {
+  color: #FF0000;
+}
