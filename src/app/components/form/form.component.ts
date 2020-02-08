@@ -29,7 +29,7 @@ export class FormComponent implements OnInit {
       areaCode: new FormControl(),
       phoneNumber: new FormControl(),
       emailAddresses: new FormArray([
-        // new FormControl(null, Validators.email)
+        new FormControl(null, Validators.email)
       ]),
       company: new FormControl(),
       streetAddress: new FormControl(),
@@ -37,8 +37,6 @@ export class FormComponent implements OnInit {
       city: new FormControl(),
       stateProvince: new FormControl(),
       postalZipCode: new FormControl(),
-      // email: new FormControl(null, Validators.email),
-      // additionalEmails: new FormArray([]),
       country: new FormControl(this.countries[0])
     });
   }
@@ -54,11 +52,6 @@ export class FormComponent implements OnInit {
   onSubmit(userForm: UserForm) {
     console.log(userForm);
     this.formResults = userForm;
-    // {{ formResults | json }}
   }
-
-  // reset() {
-  //   // this.form.resetForm();
-  // }
 
 }

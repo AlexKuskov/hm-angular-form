@@ -18,38 +18,20 @@
     <p class="form__input-label">Phone Number</p>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" formArrayName="emailAddresses" >
     <label class="form__label" for="">Email Address: <span class="input-required">*</span></label>
-    <!-- <input class="form__input" type="email" name=""> -->
 
     <div 
-      class="form-emails" 
-      formArrayName="emailAddresses" 
+      class="form-emails"
       *ngFor="let email of emailAddresses.controls; let i = index"
     >
-      <!-- <div formGroupName="i"> -->
-        <input type="email" class="form__input" [name]="'email' + i" formControlName="i"
-              [id]="'email' + i">
-        <button class="form__remove-input-btn" (click)="deleteEmail(i)" type="button">X</button>
-      <!-- </div> -->
+      <input type="email" class="form__input" [name]="'email' + i" [formControlName]="i"
+            [id]="'email' + i">
+      <button class="form__remove-input-btn" (click)="deleteEmail(i)" type="button">X</button>
     </div>
 
   </div>
   <button class="form__add-email-btn" (click)="addEmail()" type="button">+ add email</button>
-
-  <!-- <fieldset formArrayName="additionalEmails"> -->
-    <!-- <legend>Email aliases</legend> -->
-
-    <!-- <div class="input-group" *ngFor="let email of additionalEmails.controls; let i = index">
-      <input type="email" class="form-control" [name]="'email' + i" formControlName="i"
-             [id]="'email' + i">
-      <div class="input-group-append">
-        <button class="btn btn-outline-secondary" (click)="deleteEmail(i)" type="button">X</button>
-      </div>
-    </div>
-
-    <button type="button" (click)="addEmail()" class="btn btn-link">Add email</button> -->
-  <!-- </fieldset> -->
 
   <div class="form-group">
     <label class="form__label" for="">Company: <span class="input-required">*</span></label>
