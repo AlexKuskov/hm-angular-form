@@ -22,10 +22,16 @@
     <label class="form__label" for="">Email Address: <span class="input-required">*</span></label>
     <!-- <input class="form__input" type="email" name=""> -->
 
-    <div class="form-emails" *ngFor="let email of additionalEmails.controls; let i = index">
-      <input type="email" class="form__input" [name]="'email' + i" formControlName="'email' + i"
-            [id]="'email' + i">
-      <button class="form__remove-input-btn" (click)="deleteEmail(i)" type="button">X</button>
+    <div 
+      class="form-emails" 
+      formArrayName="emailAddresses" 
+      *ngFor="let email of emailAddresses.controls; let i = index"
+    >
+      <!-- <div formGroupName="i"> -->
+        <input type="email" class="form__input" [name]="'email' + i" formControlName="i"
+              [id]="'email' + i">
+        <button class="form__remove-input-btn" (click)="deleteEmail(i)" type="button">X</button>
+      <!-- </div> -->
     </div>
 
   </div>
@@ -65,10 +71,10 @@
   </div>
 
   <div class="form-group">
-    <select name="" id="">
-      <option value="">Ukraine</option>
-      <option value="">Russia</option>
-      <option value="">USA</option>
+    <select name="" id="" formControlName="country">
+      <option *ngFor="let country of countries" [value]="country">
+          {{ country }}
+      </option>
     </select>
     <p class="form__input-label">Country</p>
   </div>
@@ -78,3 +84,5 @@
   <button type="reset" (click)="userForm.resetForm()">Reset</button>
   <button type="submit" [disabled]="userForm.invalid" class="btn btn-primary">Submit</button>
 </form>
+
+<p>{{ formResults | json }}</p>
