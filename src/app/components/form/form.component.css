@@ -3,26 +3,93 @@
 }
 
 .form {
-  /* width: 50%; */
+  display: inline-block;
+  width: 50%;
+}
+
+.inputs {
+  margin-left: 280px;
+}
+
+.btn {
+  border: 2px solid #bfbfbf;
+  height: 40px;
+  padding: 10px 15px;
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 .form__label {
+  position: absolute;
   font-weight: 700;
   font-size: 25px;
 }
 
-.form__input {
+.form__input,
+.form__dropdown {
+  display: block;
+  position: relative;
+  right: 8px;
   height: 40px;
   border: 2px solid #bfbfbf;
+  margin: 0 8px 8px;
+  font-size: 18px;
+  padding: 5px;
+  color: #505050;
+}
+
+.address .form__input-label {
+  margin-bottom: 35px;
+}
+
+.number-dash {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 15px;
+  margin-top: 10px;
+}
+
+.form__input--first-name,
+.form__input--postal-zip {
+  width: 180px;
+}
+
+.form__input--last-name {
+  width: 250px;
+}
+
+.form__input--area-code {
+  width: 120px;
+}
+
+.form__input--phone-number {
+  width: 210px;
+}
+
+.form__input--email {
+  display: inline-block;
+  width: 475px;
+}
+
+.form__input--company {
+  width: 330px;
+}
+
+.form__input--street-address {
+  width: 585px;
+}
+
+.form__input--city,
+.form__input--state-province {
+  width: 280px;
 }
 
 .form-group {
-  position: relative;
+  padding-top: 55px;
 }
 
 .form__input-label {
-  position: absolute;
-  top: 0;
+  display: inline-block;
   color: #bfbfbf;
   font-size: 18px;
 }
@@ -33,6 +100,16 @@
   color: #FF0000;
   font-size: 20px;
   cursor: pointer;
+}
+
+.form__dropdown {
+  width: 280px;
+}
+
+.form-results {
+  display: inline-block;
+  width: 40%;
+  vertical-align: top;
 }
 
 .input-required {

@@ -3,68 +3,138 @@
 <hr>
 <form #userForm="ngForm" class="form" [formGroup]="form" (ngSubmit)="onSubmit(userForm.value)">
   <div class="form-group">
-    <label class="form__label" for="">Full Name: <span class="input-required">*</span></label>
-    <input class="form__input" type="text" name="" formControlName="firstName">
-    <p class="form__input-label">First Name</p>
-    <input class="form__input" type="text" name="" formControlName="lastName">
-    <p class="form__input-label">Last Name</p>
+    <label class="form__label" for="firstName">Full Name: <span class="input-required">*</span></label>
+
+    <div class="inputs">
+      <label for="firstName" class="form__input-label">
+        <input class="form__input form__input--first-name" type="text" id="firstName" name="firstName" formControlName="firstName">
+        First Name
+      </label>
+
+      <label for="lastName" class="form__input-label">
+        <input class="form__input form__input--last-name" type="text" id="lastName" name="lastName" formControlName="lastName">
+        Last Name
+      </label>
+    </div>
   </div>
 
   <div class="form-group">
-    <label class="form__label" for="">Phone Number: <span class="input-required">*</span></label>
-    <input class="form__input" type="text" name="" formControlName="areaCode">
-    <p class="form__input-label">Area Code</p>
-    <input class="form__input" type="text" name="" formControlName="phoneNumber">
-    <p class="form__input-label">Phone Number</p>
-  </div>
+    <label class="form__label" for="areaCode">Phone Number: <span class="input-required">*</span></label>
 
-  <div class="form-group" formArrayName="emailAddresses" >
-    <label class="form__label" for="">Email Address: <span class="input-required">*</span></label>
+    <div class="inputs">
+      <label for="areaCode" class="form__input-label">
+        <input class="form__input form__input--area-code" type="text" id="areaCode" name="areaCode" formControlName="areaCode">
+        Area Code
+      </label>
 
-    <div 
-      class="form-emails"
-      *ngFor="let email of emailAddresses.controls; let i = index"
-    >
-      <input type="email" class="form__input" [name]="'email' + i" [formControlName]="i"
-            [id]="'email' + i">
-      <button class="form__remove-input-btn" (click)="deleteEmail(i)" type="button">X</button>
+      <span class="number-dash">-</span>
+
+      <label for="phoneNumber" class="form__input-label">
+        <input
+          class="form__input form__input--phone-number"
+          type="text"
+          id="phoneNumber"
+          name="phoneNumber"
+          formControlName="phoneNumber"
+        >
+        Phone Number
+      </label>
     </div>
 
   </div>
-  <button class="form__add-email-btn" (click)="addEmail()" type="button">+ add email</button>
 
-  <div class="form-group">
-    <label class="form__label" for="">Company: <span class="input-required">*</span></label>
-    <input class="form__input" type="text" name="" formControlName="company">
+  <div class="form-group" formArrayName="emailAddresses" >
+    <label class="form__label" for="email0">Email Address: <span class="input-required">*</span></label>
+
+    <div class="inputs">
+      <div
+        class="form-emails"
+        *ngFor="let email of emailAddresses.controls; let i = index"
+      >
+        <input type="email" class="form__input form__input--email" id="'email' + i" [name]="'email' + i" [formControlName]="i">
+        <button class="btn form__remove-input-btn" (click)="deleteEmail(i)" type="button">X</button>
+      </div>
+
+      <button class="form__add-email-btn" (click)="addEmail()" type="button">+ add email</button>
+    </div>
   </div>
 
   <div class="form-group">
-    <label class="form__label" for="">Address: <span class="input-required">*</span></label>
-    <input class="form__input" type="text" name="" formControlName="streetAddress">
-    <p class="form__input-label">Street Address</p>
-    <input class="form__input" type="text" name="" formControlName="streetAddress2">
-    <p class="form__input-label">Street Address Line 2</p>
-    <input class="form__input" type="text" name="" formControlName="city">
-    <p class="form__input-label">City</p>
-    <input class="form__input" type="text" name="" formControlName="stateProvince">
-    <p class="form__input-label">State / Province</p>
-    <input class="form__input" type="text" name="" formControlName="postalZipCode">
-    <p class="form__input-label">Postal / Zip Code</p>
+    <label class="form__label" for="company">Company: <span class="input-required">*</span></label>
+
+    <div class="inputs">
+      <input class="form__input form__input--company" type="text" id="company" name="company" formControlName="company">
+    </div>
   </div>
 
-  <div class="form-group">
-    <select name="" id="" formControlName="country">
-      <option *ngFor="let country of countries" [value]="country">
-          {{ country }}
-      </option>
-    </select>
-    <p class="form__input-label">Country</p>
+  <div class="form-group address">
+    <label class="form__label" for="streetAddress">Address: <span class="input-required">*</span></label>
+
+    <div class="inputs">
+      <label for="streetAddress" class="form__input-label">
+        <input
+          class="form__input form__input--street-address"
+          type="text"
+          id="streetAddress"
+          name="streetAddress"
+          formControlName="streetAddress"
+        >
+        Street Address
+      </label>
+
+      <label for="streetAddress2" class="form__input-label">
+        <input
+          class="form__input form__input--street-address"
+          type="text"
+          id="streetAddress2"
+          name="streetAddress2"
+          formControlName="streetAddress2"
+        >
+        Street Address Line 2
+      </label>
+
+      <label for="city" class="form__input-label">
+        <input class="form__input form__input--city" type="text" id="city" name="city" formControlName="city">
+        City
+      </label>
+
+      <label for="stateProvince" class="form__input-label">
+        <input
+          class="form__input form__input--state-province"
+          type="text"
+          id="stateProvince"
+          name="stateProvince"
+          formControlName="stateProvince"
+        >
+        State / Province
+      </label>
+
+      <label for="postalZipCode" class="form__input-label">
+        <input
+          class="form__input  form__input--postal-zip"
+          type="text"
+          id="postalZipCode"
+          name="postalZipCode"
+          formControlName="postalZipCode"
+        >
+        Postal / Zip Code
+      </label>
+
+      <label for="country" class="form__input-label">
+        <select class="form__dropdown" name="country" id="country" formControlName="country">
+          <option *ngFor="let country of countries" [value]="country">
+              {{ country }}
+          </option>
+        </select>
+        Country
+      </label>
+    </div>
   </div>
 
-  <h1></h1>
-
-  <button type="reset" (click)="userForm.resetForm()">Reset</button>
-  <button type="submit" [disabled]="userForm.invalid" class="btn btn-primary">Submit</button>
+  <div class="inputs">
+    <button type="reset" (click)="userForm.resetForm()" class="btn">Reset</button>
+    <button type="submit" [disabled]="userForm.invalid" class="btn">Submit</button>
+  </div>
 </form>
 
-<p>{{ formResults | json }}</p>
+<p class="form-results">{{ formResults | json }}</p>
